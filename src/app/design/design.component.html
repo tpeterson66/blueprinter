@@ -1,0 +1,34 @@
+<div class="jumbotron text-center orange lighten-5">
+  <h2 class="h1 h1-responsive">Sentinel Validated Designs</h2>
+  <p class="lead">Implementation designs, notes, configurations and documentation</p>
+</div>
+
+
+
+<div *ngIf="selectDesign === true" class="list-group">
+  <strong>Route/Switch Designs</strong>
+  <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">DMVPN</h5>
+      <small>7/1/2018</small>
+    </div>
+    <p class="mb-1">Sentinel DMVPN implementation guide and deployment information</p>
+    <small>Creator - Thom VandenBossche</small>
+  </a>
+  <a class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">iWAN</h5>
+      <small class="text-muted">2/1/2018</small>
+    </div>
+    <p class="mb-1">Implementation and best practices for Cisco iWAN deployments</p>
+    <small class="text-muted">Creator - Tom Peterson</small>
+  </a>
+  <a (click)="BaseConfig" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Switch Base Configuration</h5>
+      <small class="text-muted">1/18/2018</small>
+    </div>
+    <p class="mb-1">A base configuration for a Cisco switch for production enviroments.</p>
+    <small class="text-muted">Creator - Sentinel AA</small>
+  </a>
+</div>

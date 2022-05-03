@@ -1,0 +1,283 @@
+<!-- route/switch -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="md-form col">
+      <input mdbInputDirective type="text" name="customerName" [(ngModel)]="customerName" class="form-control">
+      <label>Customer Name</label>
+    </div>
+    <div class="md-form col">
+      <input mdbInputDirective type="text" name="dealNumber" [(ngModel)]="dealNumber" class="form-control">
+      <label>Deal Number</label>
+    </div>
+    <div class="md-form col">
+      <input mdbInputDirective type="text" name="engineer" [(ngModel)]="engineer" class="form-control">
+      <label>Engineer</label>
+    </div>
+    <div class="md-form col">
+      <input mdbInputDirective type="text" name="date" [(ngModel)]="date" class="form-control">
+      <label>Date</label>
+    </div>
+  </div>
+</div>
+<!-- Creator Section -->
+<div *ngIf="editBlueprint === true">
+<button class="btn btn-elegant waves-light" *ngIf="routeSwitch === false" (click)="routeSwitch = true">Route/Switch
+  <i class="fa fa-plus-circle"></i>
+</button>
+<button class="btn btn-blue-grey waves-light" *ngIf="routeSwitch === true" (click)="routeSwitch = false">Route/Switch
+  <i class="fa fa-minus-circle"></i>
+</button>
+<div *ngIf="routeSwitch === true" class="row">
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco Switch Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoSwitch'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco Router Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoRouter'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Meraki Switch Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'merakiSwitch'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Data Center Switching Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'dataCenterSwitching'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>DMVPN Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'dmvpn'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>iWAN Deployment Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'iwan'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>ACI Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'aci'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- End of route/switch -->
+
+
+<!-- firewalls -->
+<button class="btn btn-elegant waves-light" *ngIf="firewalls === false" (click)="firewalls = true">Firewalls
+  <i class="fa fa-plus-circle"></i>
+</button>
+<button class="btn btn-blue-grey waves-light" *ngIf="firewalls === true" (click)="firewalls = false">Firewalls
+  <i class="fa fa-minus-circle"></i>
+</button>
+<div *ngIf="firewalls === true" class="row">
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco ASA Firewall Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoASA'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco ASA Firewall w/ FirePower Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoASAFP'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>FirePower Management Center</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'fmc'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco FirePower Applainces without FMC</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoFTD'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco FirePower Applainces with FMC</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoFTDFMC'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Meraki Security Applaince</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'merakiMX'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- end of firewalls -->
+
+<!-- base configuration -->
+<button class="btn btn-elegant waves-light" *ngIf="baseConfig === false" (click)="baseConfig = true">Base Configuration
+  <i class="fa fa-plus-circle"></i>
+</button>
+<button class="btn btn-blue-grey waves-light" *ngIf="baseConfig === true" (click)="baseConfig = false">Base Configuration
+  <i class="fa fa-minus-circle"></i>
+</button>
+<div *ngIf="baseConfig === true" class="row">
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Device Management Configuration</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'baseConfig'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Meraki Dashboard Setup</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'merakiDashboard'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- end of Base Config -->
+
+<!-- blank section for additions later
+<button class="btn btn-elegant waves-light" *ngIf="firewalls === false" (click)="firewalls = true">Firewalls
+  <i class="fa fa-plus-circle"></i>
+</button>
+<button class="btn btn-blue-grey waves-light" *ngIf="firewalls === true" (click)="firewalls = false">Firewalls
+  <i class="fa fa-minus-circle"></i>
+</button>
+<div *ngIf="firewalls === true" class="row">
+  <div class="col-6 col-sm-12 col-md-6">
+    <div class="container-fluid">
+      <b>Cisco ASA Firewall Deployment</b>
+      <ul class="list-group" *ngFor="let item of bpItems">
+        <li [class.added]="item.inDeployment === true" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngIf="item.category === 'ciscoASA'">
+          <a (click)="addToDeployment(item)">{{ item.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<!-- Edit Blueprint Details -->
+<hr>
+<div *ngIf="editBlueprint === true">
+  <div class="container-fluid" *ngFor="let i of bpItems">
+    <div *ngIf="i.inDeployment === true">
+      <h4>{{i.title}}</h4>
+      <!-- <p *ngFor="let b of i.body">{{ b }}</p> -->
+      <strong>Info that should be added to this section:</strong>
+      <ul class="myLists" *ngFor="let m of i.suggestedInfo">
+        <li>{{ m }}</li>
+      </ul>
+      <div class="md-form">
+        <textarea class="md-textarea form-control " rows="3" id="input_text" type="text" length="120" mdbCharCounter mdbInputDirective
+          [(ngModel)]="i.details" name="i.details"></textarea>
+        <label for="input_text">Deployment Specific Information</label>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-green btn-block waves-light fixed-bottom bottom-margin" (click)="editBlueprint = false; generateBlueprint = true"
+    mdbWavesEffect>Generate Blueprint</button>
+</div>
+
+
+<!-- Generate Blueprint -->
+<!-- Edit Blueprint Button -->
+<div *ngIf="generateBlueprint === true">
+  <div class="container-fluid" *ngFor="let i of bpItems">
+    <div *ngIf="i.inDeployment === true">
+      <h4>{{i.title}}</h4>
+      <p *ngFor="let b of i.body">{{ b }}</p>
+      <strong>Deployment Specific Details:</strong>
+      <p>{{ i.details }}</p>
+    </div>
+  </div>
+  <!-- Edit Blueprint Button -->
+  <button class="btn btn-blue btn-block waves-light fixed-bottom bottom-margin" (click)="editBlueprint = true; generateBlueprint = false"
+    mdbWavesEffect>Edit Blueprint</button>
+</div>
